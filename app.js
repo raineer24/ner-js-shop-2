@@ -47,7 +47,29 @@ class Products {
     }
 }
 class UI {
-
+    displayProducts(products) {
+        let result = '';
+        products.forEach(products => {
+            result += 
+            `
+            <!-- single product -->
+            <article class="product">
+              <div class="img-container">
+                <img src="./images/product-1.jpeg" alt="product" class="product-img">
+                <button class="bag-btn" data-id="1">
+                  <i class="fas fa-shoppig-cart"></i>
+                  Add to bag
+                </button>
+              </div>
+              <h3>queen bed</h3>
+              <h4>$1252</h4>
+            </article>
+            <!-- end of single proudct -->
+            `;
+            
+        });
+        productsDOM.innerHTML = result;
+    }
 }
 
 class Storage {
@@ -59,6 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = new Products();
 
     //get all products
-    products.getProducts().then(products => console.log(products));
+    products.getProducts().then(products => ui.displayProducts(products));
 
 });
