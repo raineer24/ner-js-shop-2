@@ -87,7 +87,11 @@ class UI {
                    event.target.innerText = 'In Cart';
                    event.target.disabled = true;
                    //get product from products
-                   let cartItem = Storage.getProduct(id);
+                   //let cartItem = Storage.getProduct(id);
+                   let cartItem = {
+                       ...Storage.getProduct(id),
+                       amount: 1
+                   }
                    console.log(cartItem);
                    
                    // add product to the cart
