@@ -49,7 +49,7 @@ class Products {
 //display the products
 class UI {
     displayProducts(products) {
-        let result = '';
+        let result = '';          
         products.forEach(product => {
             result +=
                 `
@@ -73,10 +73,14 @@ class UI {
     };
     getBagButtons() {
         const buttons = [...document.querySelectorAll('.bag-btn')];
-        console.log(buttons);
+        buttons.forEach(button => {
+            let id = button.dataset.id;
+            console.log(id);
+            
+        })
         
     }
-}
+} // end display products
 
 //local storage
 class Storage {
