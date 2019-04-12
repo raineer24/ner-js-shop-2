@@ -50,8 +50,8 @@ class UI {
     displayProducts(products) {
         let result = '';
         products.forEach(product => {
-            result += 
-            `
+            result +=
+                `
             <!-- single product -->
             <article class="product">
               <div class="img-container">
@@ -66,21 +66,28 @@ class UI {
             </article>
             <!-- end of single proudct -->
             `;
-            
+
         });
         productsDOM.innerHTML = result;
     }
 }
 
 class Storage {
-
+    static saveProducts(products) {
+        localStorage.setItem('products', JSON.stringify(products));
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI();
     const products = new Products();
+    Storage.saveProducts(products);
+
 
     //get all products
-    products.getProducts().then(products => ui.displayProducts(products));
+    products.getProducts().then(products => {
+        ui.displayProducts(products);
+        Storage.saveProducts(products);
+    });
 
 });
