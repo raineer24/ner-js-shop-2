@@ -81,10 +81,14 @@ class UI {
                 button.disabled = true;
             } else {
                 button.addEventListener("click", event => {
-                    console.log(event.target);
-                    
                    event.target.innerText = 'In Cart';
-                   event.target.disabled = true;                    
+                   event.target.disabled = true;
+                   //get product from products
+                   // add product to the cart
+                   // save cart in localStorage
+                   // set cart values
+                   // display cart Items
+                   //shw the cart                    
                 });
             }
             
