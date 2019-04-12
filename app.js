@@ -81,9 +81,11 @@ class UI {
                 button.disabled = true;
             } else {
                 button.addEventListener("click", event => {
-                    console.log(event);
+                    console.log(event.target);
                     
-                })
+                   event.target.innerText = 'In Cart';
+                   event.target.disabled = true;                    
+                });
             }
             
         });
