@@ -51,7 +51,7 @@ class Products {
 //display the products
 class UI {
     displayProducts(products) {
-        let result = '';          
+        let result = '';
         products.forEach(product => {
             result +=
                 `
@@ -80,29 +80,32 @@ class UI {
             let id = button.dataset.id;
             let inCart = cart.find(item => item.id === id);
             if (inCart) {
-                button.innerText  = 'In Cart';
+                button.innerText = 'In Cart';
                 button.disabled = true;
-            } else {
-                button.addEventListener("click", event => {
-                   event.target.innerText = 'In Cart';
-                   event.target.disabled = true;
-                   //get product from products
-                   //let cartItem = Storage.getProduct(id);
-                   let cartItem = {
-                       ...Storage.getProduct(id),
-                       amount: 1
-                   }
-                   // add product to the cart
-                   cart = [...cart, cartItem]
-                   // save cart in localStorage
-                   Storage.saveCart(cart);
-                   // set cart values
-                   // display cart Items
-                   //shw the cart                    
-                });
             }
-            
+            button.addEventListener("click", event => {
+                event.target.innerText = 'In Cart';
+                event.target.disabled = true;
+                //get product from products
+                //let cartItem = Storage.getProduct(id);
+                let cartItem = {
+                    ...Storage.getProduct(id),
+                    amount: 1
+                }
+                // add product to the cart
+                cart = [...cart, cartItem]
+                // save cart in localStorage
+                Storage.saveCart(cart);
+                // set cart values
+                this.setCartValues(cart);
+                // display cart Items
+                //shw the cart                    
+            });
+
+
         });
+    }
+    setCartValues() {
         
     }
 } // end display products
