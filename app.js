@@ -75,9 +75,12 @@ class UI {
         const buttons = [...document.querySelectorAll('.bag-btn')];
         buttons.forEach(button => {
             let id = button.dataset.id;
-            console.log(id);
+            let inCart = cart.find(item => item.id === id);
+            if (inCart) {
+                
+            }
             
-        })
+        });
         
     }
 } // end display products
