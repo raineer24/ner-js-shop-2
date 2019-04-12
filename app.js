@@ -102,6 +102,9 @@ class Storage {
     static saveProducts(products) {
         localStorage.setItem('products', JSON.stringify(products));
     }
+    static getProduct(id) {
+        let products = JSON.parse(localStorage.getItem('products'));
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
