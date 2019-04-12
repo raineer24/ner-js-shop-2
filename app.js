@@ -46,6 +46,7 @@ class Products {
         }
     }
 }
+//display the products
 class UI {
     displayProducts(products) {
         let result = '';
@@ -69,9 +70,15 @@ class UI {
 
         });
         productsDOM.innerHTML = result;
+    };
+    getBagButtons() {
+        const buttons = [...document.querySelectorAll('.bag-btn')];
+        console.log(buttons);
+        
     }
 }
 
+//local storage
 class Storage {
     static saveProducts(products) {
         localStorage.setItem('products', JSON.stringify(products));
@@ -88,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
     products.getProducts().then(products => {
         ui.displayProducts(products);
         Storage.saveProducts(products);
+    }).then(() => {
+        ui.getBagButtons();
     });
 
 });
