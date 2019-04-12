@@ -109,9 +109,11 @@ class UI {
         let tempTotal = 0;
         let itemsTOtal = 0;
         cart.map(item => {
-            console.log(item);
+            tempTotal += item.price * item.amount;
+            itemsTOtal += item.amount;
             
         });
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     }
 } // end display products
 
