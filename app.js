@@ -106,7 +106,12 @@ class UI {
         });
     }
     setCartValues() {
-        
+        let tempTotal = 0;
+        let itemsTOtal = 0;
+        cart.map(item => {
+            console.log(item);
+            
+        });
     }
 } // end display products
 
