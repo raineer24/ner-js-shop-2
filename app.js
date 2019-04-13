@@ -75,7 +75,7 @@ class UI {
     };
     getBagButtons() {
         const buttons = [...document.querySelectorAll('.bag-btn')];
-        //buttonsDOM = buttons;
+        buttonsDOM = buttons;
         buttons.forEach(button => {
             let id = button.dataset.id;
             let inCart = cart.find(item => item.id === id);
@@ -161,20 +161,22 @@ class UI {
         });
     }
     clearCart() {
-        console.log(this);
-        let cartItems = cart.map(item => item.id)
+       let cartItems = cart.map(item => item.id)
         cartItems.forEach(id => this.removeItem(id));
-        console.log(cartItems);
-        
+                
     }
     removeItem(id) {
         cart = cart.filter(item => item.id !== id);
         this.setCartValues(cart);
         Storage.saveCart(cart);
         let button = this.getSingleButton(id);
+        console.log(button);
+        
+        button.disabled = false;
+        button.innerHTML = `<i class="f fa-shopping-cart"></i>add to cart`;
     }
     getSingleButton(id) {
-        
+        return buttonsDOM.find(button => button.dataset.id === id);
     }
 } // end display products
 
