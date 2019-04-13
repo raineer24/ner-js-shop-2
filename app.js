@@ -171,7 +171,11 @@ class UI {
                 let addAmount = event.target;
                 let id = addAmount.dataset.id;
                 let tempItem = cart.find(item => item.id === id);
-                console.log(tempItem);
+                tempItem.amount = tempItem.amount + 1 ;
+                console.log(tempItem.amount);
+                Storage.saveCart(cart);
+                this.setCartValues(cart);
+                
             }
         });
     }
