@@ -146,11 +146,15 @@ class UI {
         cart = Storage.getCart();
         this.setCartValues(cart);
         this.populateCart(cart);
-        //cartBTN.addEventListener('click', this.showCart);
-        closeCartBtn, addEventListener('click', this.hideCart);
+        cartBTN.addEventListener('click', this.showCart);
+        closeCartBtn.addEventListener('click', this.hideCart);
     };
     populateCart() {
       cart.forEach(item => this.addCartItem(item));
+    };
+    hideCart() {
+        cartOverlay.classList.remove('transparentBcg');
+        cartDOM.classList.remove('showCart');
     }
 } // end display products
 
