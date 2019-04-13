@@ -99,6 +99,7 @@ class UI {
                 // set cart values
                 this.setCartValues(cart);
                 // display cart Items
+                this.addCartItem(cartItem);
                 //show the cart
                 this.showCart();
             });
@@ -163,6 +164,11 @@ class UI {
     clearCart() {
        let cartItems = cart.map(item => item.id)
         cartItems.forEach(id => this.removeItem(id));
+        while (cartContent.children.length > 0) {
+          cartContent.removeChild(cartContent.children[0]);
+            
+        }
+        this.hideCart();
                 
     }
     removeItem(id) {
