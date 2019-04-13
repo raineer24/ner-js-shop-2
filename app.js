@@ -160,6 +160,16 @@ class UI {
         clearCartBtn.addEventListener('click', () => {
             this.clearCart();
         });
+        //cart functionality
+        cartContent.addEventListener('click', event => {
+            if (event.target.classList.contains('remove-item')) {
+                let removeItem = event.target;
+                let id = removeItem.dataset.id;
+                console.log(removeItem.parentElement.parentElement);
+                console.log('tae');
+                
+            }
+            });
     }
     clearCart() {
        let cartItems = cart.map(item => item.id)
@@ -175,9 +185,7 @@ class UI {
         cart = cart.filter(item => item.id !== id);
         this.setCartValues(cart);
         Storage.saveCart(cart);
-        let button = this.getSingleButton(id);
-        console.log(button);
-        
+        let button = this.getSingleButton(id);         
         button.disabled = false;
         button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
     }
