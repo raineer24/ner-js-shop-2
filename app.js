@@ -163,9 +163,12 @@ class UI {
     clearCart() {
         console.log(this);
         let cartItems = cart.map(item => item.id)
+        cartItems.forEach(id => this.removeItem(id));
         console.log(cartItems);
         
-        
+    }
+    removeItem() {
+
     }
 } // end display products
 
