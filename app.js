@@ -176,7 +176,17 @@ class UI {
                 this.setCartValues(cart);
                 addAmount.nextElementSibling.innerText = tempItem.amount;
             } else if (event.target.classList.contains('fa-chevron-down')) {
-                console.log('test');
+                let lowerAmount = event.target;
+                let id = lowerAmount.dataset.id;
+                let tempItem = cart.find(item => item.id === id);
+                tempItem.amount -= 1;
+                if (tempItem.amount > 0 ) {
+                    Storage.saveCart(cart);
+                    this.setCartValues(cart);
+                } else {
+                    cartContent.removeChild(lowerAmount.parentElement.parentElement);
+                    this.removeItem(id);
+                   }
             }
         });
     }
