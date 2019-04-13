@@ -170,7 +170,8 @@ class UI {
             } else if (event.target.classList.contains('fa-chevron-up')){
                 let addAmount = event.target;
                 let id = addAmount.dataset.id;
-                console.log(addAmount);
+                let tempItem = cart.find(item => item.id === id);
+                console.log(tempItem);
             }
         });
     }
