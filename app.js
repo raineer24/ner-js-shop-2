@@ -155,6 +155,9 @@ class UI {
     hideCart() {
         cartOverlay.classList.remove('transparentBcg');
         cartDOM.classList.remove('showCart');
+    };
+    cartLogic() {
+        
     }
 } // end display products
 
