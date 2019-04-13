@@ -2,7 +2,7 @@
 
 const cartBTN = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
-const clearCart = document.querySelector('.clear-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
 const cartDOM = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
@@ -135,7 +135,6 @@ class UI {
         </div>
         `;
         cartContent.appendChild(div);     
-        console.log(cartContent);
     };
     showCart() {
        cartOverlay.classList.add('transparentBcg');
@@ -157,8 +156,11 @@ class UI {
         cartDOM.classList.remove('showCart');
     };
     cartLogic() {
-        
-    }
+        clearCartBtn.addEventListener('click', this.clearCart)
+    };
+    clearCart() {
+        console.log(this);
+  }
 } // end display products
 
 //local storage
