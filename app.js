@@ -99,7 +99,8 @@ class UI {
                 // set cart values
                 this.setCartValues(cart);
                 // display cart Items
-                //shw the cart                    
+                //show the cart
+                this.showCart();                    
             });
 
 
@@ -136,7 +137,7 @@ class UI {
         cartContent.appendChild(div);     
     };
     showCart() {
-        
+
     }
 } // end display products
 
