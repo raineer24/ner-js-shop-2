@@ -111,12 +111,28 @@ class UI {
         cart.map(item => {
             tempTotal += item.price * item.amount;
             itemsTotal += item.amount;
-            
+
         });
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
         cartItems.innerText = itemsTotal;
-        console.log(cartTotal, cartItems);
-        
+    };
+    addCartItem(item) {
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = 
+        `
+        <img src="./images/product-1.jpeg" alt="product">
+        <div>
+          <h4>queen bed</h4>
+          <h5>$24.00</h5>
+          <span class="remove-item">remove</span>
+        </div>
+        <div>
+          <i class="fas fa-chevron-up"></i>
+          <p class="item-amount">1</p>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        `
     }
 } // end display products
 
