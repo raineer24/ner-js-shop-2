@@ -100,7 +100,7 @@ class UI {
                 this.setCartValues(cart);
                 // display cart Items
                 //show the cart
-                this.showCart();                    
+                this.showCart();
             });
 
 
@@ -120,8 +120,8 @@ class UI {
     addCartItem(item) {
         const div = document.createElement('div');
         div.classList.add('cart-item');
-        div.innerHTML = 
-        `
+        div.innerHTML =
+            `
         <img src=${item.image} alt="product">
         <div>
           <h4>${item.title}</h4>
@@ -134,12 +134,12 @@ class UI {
           <i class="fas fa-chevron-down" data-id=${item.id}></i>
         </div>
         `;
-        cartContent.appendChild(div);     
+        cartContent.appendChild(div);
     };
     showCart() {
-       cartOverlay.classList.add('transparentBcg');
-       cartDOM.classList.add('showCart');
-        
+        cartOverlay.classList.add('transparentBcg');
+        cartDOM.classList.add('showCart');
+
     };
     setupApp() {
         cart = Storage.getCart();
@@ -149,18 +149,24 @@ class UI {
         closeCartBtn.addEventListener('click', this.hideCart);
     };
     populateCart() {
-      cart.forEach(item => this.addCartItem(item));
+        cart.forEach(item => this.addCartItem(item));
     };
     hideCart() {
         cartOverlay.classList.remove('transparentBcg');
         cartDOM.classList.remove('showCart');
     };
     cartLogic() {
-        clearCartBtn.addEventListener('click', this.clearCart)
-    };
+        clearCartBtn.addEventListener('click', () => {
+            this.clearCart();
+        });
+    }
     clearCart() {
         console.log(this);
-  }
+        let cartItems = cart.map(item => item.id)
+        console.log(cartItems);
+        
+        
+    }
 } // end display products
 
 //local storage
@@ -193,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ui.setupApp();
     }).then(() => {
         ui.getBagButtons();
+        ui.cartLogic();
     });
 
 });
